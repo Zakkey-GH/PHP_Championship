@@ -45,9 +45,9 @@ else:
     closest_entry, distance = find_closest_color(avg_color)
 
     # 結果を判定
-    threshold = 50  # 距離が大きい場合は対象範囲外とみなす
+    threshold = 50  # 距離が大きい場合は対象範囲外。※cv2は日本語不可
     if distance > threshold:
-        text = "対象範囲外です"
+        text = "out of range"
     else:
         text = f"Value: {closest_entry['value']} (distance: {distance:.2f})"
 
