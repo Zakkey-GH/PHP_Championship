@@ -9,7 +9,6 @@ include("funcs.php");
 
 //２．データ登録SQL作成
 $pdo = db_conn();
-echo "2";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $caption = $_POST["caption"];
     $name = $_SESSION["name"];
@@ -34,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //     redirect(index.html);
         // }
 
-        $command = escapeshellcmd("python3 process_image.py $image_path");
+        $command = escapeshellcmd("python3 process_image.py") . " " . escapeshellarg($image_path);
         $output = shell_exec($command);
     
         // 結果をクライアントに返す
